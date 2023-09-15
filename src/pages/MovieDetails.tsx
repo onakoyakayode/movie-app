@@ -1,6 +1,4 @@
-import axios from "axios";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface MovieCard {
   id: number;
@@ -31,8 +29,8 @@ interface MovieDetailProps {
 }
 
 const MovieDetails: React.FC<MovieDetailProps> = ({ movie }) => {
-  const localDate = new Date(movie.release_date);
-  const utcDate = localDate.toISOString();
+  // const localDate = new Date(movie.release_date);
+  // const utcDate = localDate.toISOString().split("T")[0];
   function convertMinutesToHoursAndMinutes(minutes: number): string {
     if (isNaN(minutes)) {
       return "Invalid Input";
@@ -47,9 +45,9 @@ const MovieDetails: React.FC<MovieDetailProps> = ({ movie }) => {
 
     return `${hoursText} ${minutesText}`;
   }
-  const formattedRuntime: string = convertMinutesToHoursAndMinutes(
-    movie.runtime
-  );
+  // const formattedRuntime: string = convertMinutesToHoursAndMinutes(
+  //   movie.runtime
+  // );
   return (
     <div className="font-Poppins">
       {movie ? (
@@ -68,10 +66,14 @@ const MovieDetails: React.FC<MovieDetailProps> = ({ movie }) => {
                 <p data-testid="movie-title">{movie.title}</p>
                 <span>•</span>
                 <p data-testid="movie-release-date" className="text-[12px]">
-                  {utcDate}
+                  {movie.release_date}
                 </p>
                 <span>•</span>
-                <p data-testid="movie-runtime">{formattedRuntime}</p>
+                <p data-testid="movie-runtime">
+                  {movie.runtime
+                    ? convertMinutesToHoursAndMinutes(movie.runtime)
+                    : ""}
+                </p>
                 <p>{movie.adult ? "PG-18" : "PG-13"}</p>
               </div>
               <div className="flex justify-start items-center gap-[11px]">
@@ -92,20 +94,6 @@ const MovieDetails: React.FC<MovieDetailProps> = ({ movie }) => {
               {movie.overview}
             </p>
           </div>
-          {/* <div>
-            <p className="text-[20px] font-[400] leading-[30px] text-[#333] mb-[31px]">
-              Director: <span className="text-[#be123c]">Joseph Kosinski</span>
-            </p>
-            <p className="text-[20px] font-[400] leading-[30px] text-[#333] mb-[31px]">
-              Writers:{" "}
-              <span className="text-[#be123c]">
-                Jim Cash, Jack Epps Jr, Peter Craig
-              </span>
-            </p>
-            <p className="text-[20px] font-[400] leading-[30px] text-[#333] mb-[31px]">
-              Stars: <span className="text-[#be123c]">Joseph Kosinski</span>
-            </p>
-          </div> */}
         </div>
       ) : (
         <div>Loading...</div>
