@@ -761,11 +761,12 @@
 
 @media screen and (max-width: 600px) {
   .movieLists[data-testid="movie-card"] {
-    grid-template-columns: 100%;
+    grid-template-columns: repeat(5, 120px);
     width: 100%;
-    gap: 30px;
-    height: auto;
-    place-items: center;
+    gap: 20px;
+    height: 80dvh;
+    place-items: start;
+    overflow-x: auto;
   }
 }
 
@@ -791,8 +792,9 @@
 
 @media screen and (max-width: 600px) {
   .moviePoster[data-testid="movie-poster"] {
-    width: 100%;
+    width: 120px;
     height: auto;
+    margin-bottom: 40px;
   }
 }
 
@@ -814,7 +816,7 @@
   margin-bottom: 12px;
 }
 
-.movieDetails {
+.movieDet {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -827,7 +829,7 @@
   }
 }
 
-.cardTitle[data-testid="movie-title"] {
+#cardTitle[data-testid="movie-title"] {
   color: #111827;
   font-size: 18px;
   font-weight: 700;
@@ -872,7 +874,7 @@
   height: 145px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 36px;
 }

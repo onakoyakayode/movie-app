@@ -112,20 +112,15 @@ const Card: React.FC<MovieProps> = ({ movie }) => {
                       alt={`${movie.title} Poster`}
                       className={styles.cardImg}
                     />
-                    <div className={styles.movieDetails}>
-                      <h5
-                        className={styles.cardTitle}
-                        data-testid="movie-title"
-                      >
-                        {movie.title}
-                      </h5>
-                      <p
-                        className={styles.release_date}
-                        data-testid="movie-release-date"
-                      >
-                        {movie.release_date}
-                      </p>
-                    </div>
+                    <h5 id={styles.cardTitle} data-testid="movie-title">
+                      {movie.title}
+                    </h5>
+                    <p
+                      className={styles.release_date}
+                      data-testid="movie-release-date"
+                    >
+                      {movie.release_date}
+                    </p>
                   </Link>
                 ))}
               </ul>
