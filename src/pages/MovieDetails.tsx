@@ -61,7 +61,7 @@ const MovieDetails: React.FC<MovieDetailProps> = ({ movie }) => {
           </div>
 
           <div className="flex flex-col justify-start items-start mb-[30px] w-[100%]">
-            <div className="flex flex-col md:flex items-start md:items-center justify-center md:justify-start gap-[5px]  md:gap-[17px] mb-[25px] w-[100%]">
+            <div className="flex flex-col md:flex md:flex-row items-start md:items-center justify-center md:justify-start gap-[5px]  md:gap-[17px] mb-[25px] w-[100%]">
               <div className="font-[500] leading-[34.5px] text-[10px] md:text-[23px] w-[100%] flex items-center justify-start gap-2 md:gap-[10px]">
                 <p
                   data-testid="movie-title"
@@ -102,7 +102,7 @@ const MovieDetails: React.FC<MovieDetailProps> = ({ movie }) => {
               </div>
             </div>
             <p
-              className="font-[400] text-[16px] md:text-[20px] leading-[30px] text-[#333]"
+              className="font-[400] text-[14px] md:text-[16px] lg:text-[18px] leading-[30px] text-[#333]"
               data-testid="movie-overview"
             >
               {movie.overview}
