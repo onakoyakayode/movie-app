@@ -52,7 +52,7 @@
     /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 70px;
+    margin-bottom: 35%;
     padding: 10px 0;
   }
 }
@@ -60,6 +60,7 @@
 @media screen and (min-width: 600px) and (max-width: 900px) {
   .nav {
     height: 75px;
+    position: relative;
   }
 }
 
@@ -200,7 +201,10 @@
 
 @media screen and (max-width: 600px) {
   .searchBox {
-    display: none;
+    position: absolute;
+    top: 8%;
+    width: 90%;
+    height: 40px;
   }
 }
 
@@ -387,7 +391,7 @@
     justify-content: flex-start;
     align-content: space-between;
     /* align-items: flex-start; */
-    height: 70dvh;
+    height: 60dvh;
   }
 }
 
@@ -826,7 +830,7 @@
     font-size: 14px;
     width: 100%;
     line-height: 20px;
-    margin-bottom: 20%;
+    margin-bottom: 18%;
   }
 }
 
@@ -881,7 +885,7 @@
   .buttonTrailer {
     width: 100%;
     height: 50px;
-    margin-bottom: 25%;
+    margin-bottom: 20%;
   }
 }
 
@@ -890,6 +894,7 @@
     width: 35%;
     height: 50px;
     margin-bottom: 25%;
+    font-size: 16px;
   }
 }
 
@@ -897,6 +902,7 @@
   .buttonTrailer {
     width: 40%;
     height: 60px;
+    font-size: 17px;
   }
 }
 
@@ -904,6 +910,7 @@
   .buttonTrailer {
     width: 20%;
     height: 60px;
+    font-size: 18px;
   }
 }
 
@@ -1041,6 +1048,22 @@
 .moviePoster[data-testid="movie-poster"] {
   width: 220px;
   height: 490px;
+  position: relative;
+}
+
+.heartIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  color: #babbbcad;
+}
+
+.heartIconImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 600px) {
@@ -1097,19 +1120,19 @@
   }
 }
 
-#cardTitle[data-testid="movie-title"] {
+.cardTitle[data-testid="movie-title"] {
   color: #111827;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 23.44px;
   margin-bottom: 12px;
 }
 
-.release_date[data-testid="movie-release-date"] {
+.release_date[data-testid="movie-release_date"] {
   font-size: 12px;
   line-height: 15.6px;
   color: #9ca3af;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 600px) {
@@ -1193,4 +1216,42 @@
   .foot {
     font-size: 13px;
   }
+}
+
+.movieRatings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movieRatingImg {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.movieRatingImg p {
+  font-size: 13px;
+}
+
+.movieRatingPercentage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.movieRatingPercentage p {
+  font-size: 13px;
+}
+
+.moviesT {
+  position: absolute;
+  background-color: #9ca3af;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #111827;
+  top: 20px;
+  left: 20px;
 }

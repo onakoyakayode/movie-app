@@ -1,4 +1,5 @@
 import React from "react";
+import { AiFillPlayCircle } from "react-icons/ai";
 
 interface MovieCard {
   id: number;
@@ -52,12 +53,13 @@ const MovieDetails: React.FC<MovieDetailProps> = ({ movie }) => {
     <div className="font-Poppins">
       {movie ? (
         <div className="w-[100%]">
-          <div className="h-[300px] md:h-[449px] w-[100%] rounded-[10px] md:rounded-[20px] overflow-hidden mb-[15px] md:mb-[31px]">
+          <div className="h-[300px] md:h-[449px] w-[100%] rounded-[10px] md:rounded-[20px] overflow-hidden mb-[15px] md:mb-[31px] relative">
             <img
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               alt={movie.title}
-              className="h-[100%] w-full aspect-video object-fill rounded-[10px] md:rounded-[20px]"
+              className="h-[100%] w-full aspect-video object-fill rounded-[10px] md:rounded-[20px] relative"
             />
+            <AiFillPlayCircle className="absolute top-[45%] left-[45%] scale-150 text-[#f4f4f4] w-[50px] h-[50px] m-auto" />
           </div>
 
           <div className="flex flex-col justify-start items-start mb-[30px] w-[100%]">

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
-// import Image from "next/image";
+import { AiFillHeart } from "react-icons/ai";
+import Imdb from "../assets/MV5BMTk3ODA4Mjc0NF5BMl5BcG5nXkFtZTgwNDc1MzQ2OTE@ 1.png";
+import orange from "../assets/PngItem_1381056 1.svg";
+import Image from "next/image";
 
 interface MovieCard {
   id: number;
@@ -49,6 +52,7 @@ const Card: React.FC<MovieProps> = ({ movie }) => {
       const firstTenMovies = popularMovies.slice(0, 10);
       setMoviesData(firstTenMovies);
       setLoading(false);
+      console.log(popularMovies);
     } catch (error) {
       console.error("Error:", error);
       setLoading(false);
@@ -134,18 +138,46 @@ const Card: React.FC<MovieProps> = ({ movie }) => {
                     className={styles.moviePoster}
                     data-testid="movie-poster"
                   >
+                    <h5 className={styles.moviesT}>Movie</h5>
+                    <p className={styles.heartIcon}>
+                      <AiFillHeart className={styles.heartIconImg} />
+                    </p>
                     <img
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                       alt={`${movie.title}`}
                       className={styles.cardImg}
                     />
-                    <h5 className={styles.cardTitle}>{movie.title}</h5>
                     <p
                       className={styles.release_date}
-                      data-testid="movie-title"
+                      data-testid="movie-release_date"
                     >
                       {movie.release_date}
                     </p>
+                    <h5 className={styles.cardTitle} data-testid="movie-title">
+                      {movie.title}
+                    </h5>
+
+                    <div className={styles.movieRatings}>
+                      <div className={styles.movieRatingImg}>
+                        <Image
+                          src={Imdb}
+                          alt=""
+                          width={30}
+                          height={30}
+                          objectFit="cover"
+                        />
+                        <p>86.0 / 100</p>
+                      </div>
+                      <div className={styles.movieRatingPercentage}>
+                        <Image
+                          src={orange}
+                          alt="orange"
+                          width={15}
+                          height={15}
+                        />
+                        <p>85%</p>
+                      </div>
+                    </div>
                   </Link>
                 ))}
               </ul>
